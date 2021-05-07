@@ -5,6 +5,7 @@ class Parcela(val ancho: Int, val largo: Int, val horasSolPorDia: Int) {
   var cantidadPlantas = 0
 
   fun superficie() = ancho * largo
+
   //no cumple con la cualidad de simplicidad
   fun cantidadMaximaPlantas() =
     if (ancho > largo) ancho * largo / 5 else ancho * largo / 3 + largo
