@@ -40,6 +40,8 @@ class Agricultora(val parcelas: MutableList<Parcela>) {
   }
 
   fun parcelasSemilleras() =
+    // Esta función no presenta un buen nivel de abstracción para la determinación de si una parcela es semillera.
+    // Tampoco tiene facilidad de prueba.
     parcelas.filter {
       parcela -> parcela.plantas.all {
         planta -> planta.daSemillas()
