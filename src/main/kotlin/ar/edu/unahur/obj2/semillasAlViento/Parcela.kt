@@ -28,6 +28,9 @@ class Parcela(val ancho: Int, val largo: Int, val horasSolPorDia: Int) {
 class Agricultora(val parcelas: MutableList<Parcela>) {
   var ahorrosEnPesos = 20000
 
+  /* Esta función `comprarParcela` no cumple el principio de simplicidad YAGNI (You aren’t gonna need it).
+  Ya que implementa una funcionalidad que no se utiliza. */
+
   // Suponemos que una parcela vale 5000 pesos
   fun comprarParcela(parcela: Parcela) {
     if (ahorrosEnPesos >= 5000) {
