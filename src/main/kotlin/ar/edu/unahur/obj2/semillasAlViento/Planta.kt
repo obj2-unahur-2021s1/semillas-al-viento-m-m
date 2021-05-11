@@ -10,14 +10,14 @@ abstract class Planta(val anioObtencionSemilla: Int, var altura: Float) {
   abstract fun horasDeSolQueTolera(): Int
   abstract fun daSemillas(): Boolean
 }
-// si ya lo definió en la clase padre es necesario definirlo en la hija?
-// NO ENTIENDO A QUÉ REFIERE LA PREGUNTA...
+
 class Menta(anioObtencionSemilla: Int, altura: Float) : Planta(anioObtencionSemilla, altura) {
   override fun horasDeSolQueTolera() = 6
   override fun daSemillas() = this.esFuerte() || altura > 0.4  // Esta función no es robusta porque genera un
                                                                // comportamiento errático al introducir el
                                                                // booleano de la condición 'esFuerte'
 }
+
 // no es cohesiva la clase soja
 class Soja(anioObtencionSemilla: Int, altura: Float, val esTransgenica: Boolean) : Planta(anioObtencionSemilla, altura) {
   override fun horasDeSolQueTolera(): Int  {
@@ -35,11 +35,13 @@ class Soja(anioObtencionSemilla: Int, altura: Float, val esTransgenica: Boolean)
   }
 
   override fun daSemillas(): Boolean  {
-    //el enunciado no especifica que si es transgénica no devuelve
+    // Esta función no es consistente con la función anterior, ya que aplica el mismo criterio de resolución
+    // para la condición de transgénica.
     if (this.esTransgenica) {
       return false
     }
-
+    // Esta función no es robusta porque genera un comportamiento errático al introducir el
+    // booleano de la condición 'esFuerte'
     return this.esFuerte() || (this.anioObtencionSemilla > 2007 && this.altura > 1)
   }
 }
