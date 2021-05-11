@@ -18,7 +18,9 @@ class Menta(anioObtencionSemilla: Int, altura: Float) : Planta(anioObtencionSemi
                                                                // booleano de la condición 'esFuerte'
 }
 
-// no es cohesiva la clase soja
+// no es cohesiva la clase soja xq en el misma clase se busca tratar los 2 tipos
+// de soja, es mejor tener una clase soja que se dedique a la soja y
+// otra clase, hija de soja, que se encargue de resolver la soja transgenica
 class Soja(anioObtencionSemilla: Int, altura: Float, val esTransgenica: Boolean) : Planta(anioObtencionSemilla, altura) {
   override fun horasDeSolQueTolera(): Int  {
     // ¡Magia de Kotlin! El `when` es como un `if` pero más poderoso:
