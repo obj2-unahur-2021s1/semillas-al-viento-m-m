@@ -1,6 +1,6 @@
 package ar.edu.unahur.obj2.semillasAlViento
 
-abstract class Planta(val anioObtencionSemilla: Int, var altura: Float) {
+abstract class Planta(val anioObtencionSemilla: Int, var altura: Int) {
   fun esFuerte() = this.horasDeSolQueTolera() > 10
 
   // Aquí hay un problema de abstracción/cohesión: esta función debería estar en el módulo `Parcela`
@@ -11,7 +11,7 @@ abstract class Planta(val anioObtencionSemilla: Int, var altura: Float) {
   abstract fun daSemillas(): Boolean
 }
 
-class Menta(anioObtencionSemilla: Int, altura: Float) : Planta(anioObtencionSemilla, altura) {
+class Menta(anioObtencionSemilla: Int, altura: Int) : Planta(anioObtencionSemilla, altura) {
   override fun horasDeSolQueTolera() = 6
   override fun daSemillas() = this.esFuerte() || altura > 0.4  // Esta función no es robusta porque genera
                                                                // un comportamiento errático al introducir
@@ -21,7 +21,7 @@ class Menta(anioObtencionSemilla: Int, altura: Float) : Planta(anioObtencionSemi
 // no es cohesiva la clase soja xq en el misma clase se busca tratar los 2 tipos
 // de soja, es mejor tener una clase soja que se dedique a la soja y
 // otra clase, hija de soja, que se encargue de resolver la soja transgenica
-class Soja(anioObtencionSemilla: Int, altura: Float, val esTransgenica: Boolean) : Planta(anioObtencionSemilla, altura) {
+class Soja(anioObtencionSemilla: Int, altura: Int, val esTransgenica: Boolean) : Planta(anioObtencionSemilla, altura) {
   override fun horasDeSolQueTolera(): Int  {
     // ¡Magia de Kotlin! El `when` es como un `if` pero más poderoso:
     // evalúa cada línea en orden y devuelve lo que está después de la flecha.
