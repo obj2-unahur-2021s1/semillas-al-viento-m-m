@@ -2,6 +2,7 @@ package ar.edu.unahur.obj2.semillasAlViento
 
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.booleans.shouldBeFalse
+import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.shouldBe
 
 class PlantaTest: DescribeSpec({
@@ -20,6 +21,11 @@ class PlantaTest: DescribeSpec({
         describe("es fuerte la menta") {
             it("la menta no es fuerte porq no tolera mas de 6 horas de sol") {
                 menta.esFuerte().shouldBeFalse()
+            }
+        }
+        describe("da semillas la menta") {
+            it("la menta da semillas porq su altura es mayor a 0.4") {
+                menta.daSemillas().shouldBeTrue()
             }
         }
     }
