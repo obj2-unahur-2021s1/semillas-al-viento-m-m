@@ -8,8 +8,8 @@ import io.kotest.matchers.shouldBe
 class PlantaTest: DescribeSpec({
 
     describe("requerimientos Menta") {
-        //se cambia el tipo de dato de altura de float a int, ya que salta "The integer literal does not conform to the expected type Float"
-        val menta = Menta(2021, 6)
+        //se cambia el tipo de dato de altura de float a Double, ya que salta "The Double literal does not conform to the expected type Float"
+        val menta = Menta(2021, 6.0)
         describe("horas de sol de la menta") {
             it("las horas de sol de la menta es de 6 horas de sol") {
                 menta.horasDeSolQueTolera().shouldBe(6)
@@ -29,7 +29,14 @@ class PlantaTest: DescribeSpec({
             }
         }
     }
-    describe("requerimientos Soja"){}
+    describe("requerimientos Soja"){
+        val soja = Soja(2020,1.0,false)
+        describe("horas de sol de la soja"){
+            it("al tener la altura mayor 1, las horas de sol que toleran son 7"){
+                soja.horasDeSolQueTolera().shouldBe(9)
+            }
+        }
+    }
 
     describe("requerimientos Soja Transgenica"){}
 
