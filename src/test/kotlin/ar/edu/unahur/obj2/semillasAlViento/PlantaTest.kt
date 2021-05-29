@@ -30,10 +30,31 @@ class PlantaTest: DescribeSpec({
         }
     }
     describe("requerimientos Soja"){
-        val soja = Soja(2020,1.0,false)
-        describe("horas de sol de la soja"){
-            it("al tener la altura mayor 1, las horas de sol que toleran son 7"){
-                soja.horasDeSolQueTolera().shouldBe(9)
+        val soja1 = Soja(2020,1.5,false)
+        val soja2 = Soja(2019,0.3,false)
+        val soja3 = Soja(2006,0.8,false)
+        describe("horas de sol de las sojas"){
+            it("la soja1 al tener una altura mayor a 1, las horas de sol que toleran son 9"){
+                soja1.horasDeSolQueTolera().shouldBe(9)
+            }
+            it("la soja2 al tener una altura menor a 0.5, las horas de sol que tolera son 6"){
+                soja2.horasDeSolQueTolera().shouldBe(6)
+            }
+            it("la soja3 al tener una altura entre 0.5 y 1, las horas de sol que tolera son 7"){
+                soja3.horasDeSolQueTolera().shouldBe(7)
+            }
+        }
+        describe("es fuerte la soja"){
+            it("la soja1 no es fuerte porq tolera menos de 10 horas de sol"){
+                soja1.esFuerte().shouldBeFalse()
+            }
+        }
+        describe("da semillas la soja"){
+            it("la soja1 da semillas porq su altura es mayor a 1.0"){
+                soja1.daSemillas().shouldBeTrue()
+            }
+            it("la soja3 no da semillas porq su altura no es mayor a 1.0 y su año de obtencion es previo a 2007"){
+                soja3.daSemillas().shouldBeFalse()
             }
         }
     }
