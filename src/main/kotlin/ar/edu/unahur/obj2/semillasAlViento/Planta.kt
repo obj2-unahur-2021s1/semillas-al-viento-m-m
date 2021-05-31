@@ -13,9 +13,7 @@ abstract class Planta(val anioObtencionSemilla: Int, var altura: Double) {
 
 class Menta(anioObtencionSemilla: Int, altura: Double) : Planta(anioObtencionSemilla, altura) {
   override fun horasDeSolQueTolera() = 6
-  override fun daSemillas() = this.esFuerte() || altura > 0.4  // Esta función no es robusta porque genera
-                                                               // un comportamiento errático al introducir
-                                                               // el booleano de la condición 'esFuerte'
+  override fun daSemillas() = this.esFuerte() || altura > 0.4
 }
 
 // no es cohesiva la clase soja xq en el misma clase se busca tratar los 2 tipos
