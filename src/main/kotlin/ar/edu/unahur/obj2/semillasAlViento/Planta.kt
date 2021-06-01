@@ -1,6 +1,6 @@
 package ar.edu.unahur.obj2.semillasAlViento
-
-abstract class Planta(val anioObtencionSemilla: Int, var altura: Double) {
+//se cambia val porq es invariable
+abstract class Planta(val anioObtencionSemilla: Int, val altura: Double) {
   fun esFuerte() = this.horasDeSolQueTolera() > 10
 
   // Aquí hay un problema de abstracción/cohesión: esta función debería estar en el módulo `Parcela`
