@@ -19,7 +19,7 @@ class Menta(anioObtencionSemilla: Int, altura: Double) : Planta(anioObtencionSem
 // no es cohesiva la clase soja xq en el misma clase se busca tratar los 2 tipos
 // de soja, es mejor tener una clase soja que se dedique a la soja y
 // otra clase, hija de soja, que se encargue de resolver la soja transgenica
-class Soja(anioObtencionSemilla: Int, altura: Double, val esTransgenica: Boolean) : Planta(anioObtencionSemilla, altura) {
+open class Soja(anioObtencionSemilla: Int, altura: Double) : Planta(anioObtencionSemilla, altura) {
   override fun horasDeSolQueTolera(): Int  {
     // ¡Magia de Kotlin! El `when` es como un `if` pero más poderoso:
     // evalúa cada línea en orden y devuelve lo que está después de la flecha.
@@ -31,17 +31,22 @@ class Soja(anioObtencionSemilla: Int, altura: Double, val esTransgenica: Boolean
       else          -> 9
     }
      //
-    return if (esTransgenica) horasBase * 2 else horasBase
+    return horasBase //if (esTransgenica) horasBase * 2 else horasBase
   }
-
   override fun daSemillas(): Boolean  {
     // Esta función no es consistente con la función anterior, ya que no aplica
     // el mismo criterio de resolución del problema para la condición de transgénica.
-    if (this.esTransgenica) {
-      return false
-    }
+    //if (this.esTransgenica) {
+      //return false
+    //}
     // Esta parte de la función no es robusta porque genera un comportamiento errático
     // al introducir el booleano de la condición 'esFuerte'
     return this.esFuerte() || (this.anioObtencionSemilla > 2007 && this.altura > 1)
   }
+}
+class SojaTransgenica(anioObtencionSemilla: Int, altura: Double): Soja(anioObtencionSemilla, altura){
+
+  override fun horasDeSolQueTolera() = super.horasDeSolQueTolera()*2
+
+  override fun daSemillas() = false
 }

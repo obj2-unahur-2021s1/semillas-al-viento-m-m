@@ -10,8 +10,8 @@ class ParcelaTest() : DescribeSpec( {
 
     val miParcela = Parcela(25, 50, 9)
     val menta = Menta(2020, 0.48)
-    val sojaGrande = Soja(2019, 1.70, false)
-    val sojaChica = Soja(2020, 0.6, false)
+    val sojaGrande = Soja(2019, 1.70)
+    val sojaChica = Soja(2020, 0.6)
 
     describe("Características de la parcela") {
         it("La superficie es 1250 m2") {

@@ -30,9 +30,9 @@ class PlantaTest: DescribeSpec({
         }
     }
     describe("requerimientos Soja"){
-        val soja1 = Soja(2020,1.5,false)
-        val soja2 = Soja(2019,0.3,false)
-        val soja3 = Soja(2006,0.8,false)
+        val soja1 = Soja(2020,1.5)
+        val soja2 = Soja(2019,0.3)
+        val soja3 = Soja(2006,0.8)
         describe("horas de sol de las sojas"){
             it("la soja1 al tener una altura mayor a 1, las horas de sol que toleran son 9"){
                 soja1.horasDeSolQueTolera().shouldBe(9)
@@ -60,9 +60,9 @@ class PlantaTest: DescribeSpec({
     }
 
     describe("requerimientos Soja Transgenica"){
-        val sojaTransgenica1 = Soja(2015,1.2,true)
-        val sojaTransgenica2 = Soja(2019,0.3,true)
-        val sojaTransgenica3 = Soja(2006,0.8,true)
+        val sojaTransgenica1 = SojaTransgenica(2015,1.2)
+        val sojaTransgenica2 = SojaTransgenica(2019,0.3)
+        val sojaTransgenica3 = SojaTransgenica(2006,0.8)
         describe("horas de sol que tolera"){
             it("la altura de la sojatransgenica1 al ser mayor a 1.2 tolera hace que tolere 18 horas de sol"){
                 sojaTransgenica1.horasDeSolQueTolera().shouldBe(18)

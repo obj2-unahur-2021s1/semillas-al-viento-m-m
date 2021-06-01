@@ -12,9 +12,9 @@ class AgricultorTest: DescribeSpec( {
     val miParcela2 = Parcela(25, 50, 9)
 
     val menta = Menta(2020, 0.7)
-    val sojaGrande = Soja(2019, 1.70, false)
-    val sojaChica = Soja(2020, 0.6, false)
-    val sojaTransgenica = Soja(2020, 0.6, true)
+    val sojaGrande = Soja(2019, 1.70)
+    val sojaChica = Soja(2020, 0.6)
+    val sojaTransgenica = SojaTransgenica(2020, 0.6)
 
     miParcela.plantar(menta)
     miParcela.plantar(sojaGrande)
@@ -42,7 +42,7 @@ class AgricultorTest: DescribeSpec( {
         }
     }
     describe("plantar estrategicamente"){
-        val soja = Soja(2021, 1.70, false)
+        val soja = Soja(2021, 1.70)
         it("se planta en la parcela 1"){
             soja.daSemillas().shouldBeTrue()
 
