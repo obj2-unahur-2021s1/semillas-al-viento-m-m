@@ -48,9 +48,10 @@ class ParcelaTest() : DescribeSpec( {
                 miParcela.plantar(sojaGrande)
             }
             miParcela.cantidadPlantas.shouldBe(466)
-            miParcela.plantar(sojaGrande)(kotlin.Unit) // la función no produce un error sino un mensaje
+            //miParcela.plantar(sojaGrande)(kotlin.Unit) // la función no produce un error sino un mensaje
                                                        // por lo tanto no se puede manejar como una excepción
         }
     }
  }
 )
+

@@ -87,6 +87,4 @@ class PlantaTest: DescribeSpec({
 
 
     }
-
-    describe("requerimientos Agricultora"){}
 })
