@@ -9,6 +9,8 @@ abstract class Planta(val anioObtencionSemilla: Int, var altura: Double) {
 
   abstract fun horasDeSolQueTolera(): Int
   abstract fun daSemillas(): Boolean
+  //open fun daSemillas() = this.esFuerte()
+  //llamar al super con las hijas y agregar la condicion de cada planta
 }
 
 class Menta(anioObtencionSemilla: Int, altura: Double) : Planta(anioObtencionSemilla, altura) {
