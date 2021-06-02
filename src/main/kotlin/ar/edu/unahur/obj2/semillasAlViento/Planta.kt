@@ -3,9 +3,6 @@ package ar.edu.unahur.obj2.semillasAlViento
 abstract class Planta(val anioObtencionSemilla: Int, val altura: Double) {
   fun esFuerte() = this.horasDeSolQueTolera() > 10
 
-  // Aquí hay un problema de abstracción/cohesión: esta función debería estar en el módulo `Parcela`
-  fun parcelaTieneComplicaciones(parcela: Parcela) =
-    parcela.plantas.any { it.horasDeSolQueTolera() < parcela.horasSolPorDia }
 
   abstract fun horasDeSolQueTolera(): Int
   abstract fun daSemillas(): Boolean

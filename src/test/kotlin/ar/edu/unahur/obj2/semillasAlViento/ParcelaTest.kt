@@ -22,11 +22,12 @@ class ParcelaTest() : DescribeSpec( {
         }
         it("La parcela no tiene complicaciones") {
             miParcela.plantar(sojaGrande)
-            sojaGrande.parcelaTieneComplicaciones(miParcela).shouldBe(false)
+            //sojaGrande.parcelaTieneComplicaciones(miParcela).shouldBe(false)
+            miParcela.parcelaTieneComplicaciones().shouldBe(false)
         }
         it("La parcela tiene complicaciones") {
             miParcela.plantar(sojaChica)
-            sojaChica.parcelaTieneComplicaciones(miParcela).shouldBe(true)
+            miParcela.parcelaTieneComplicaciones().shouldBe(true)
         }
     }
 

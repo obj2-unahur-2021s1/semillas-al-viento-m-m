@@ -28,6 +28,11 @@ class Parcela(val ancho: Int, val largo: Int, val horasSolPorDia: Int) {
   }
   //se agrega funcion para mejorar
   fun esSemillera() = plantas.all{ it.daSemillas() }
+
+  // esta función estaba en Planta.kt
+  fun parcelaTieneComplicaciones() =
+    plantas.any { it.horasDeSolQueTolera() < this.horasSolPorDia }
+
 }
 
 class Agricultora(val parcelas: MutableList<Parcela>) {
