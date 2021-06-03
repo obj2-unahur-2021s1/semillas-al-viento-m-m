@@ -12,30 +12,23 @@ class Parcela(val ancho: Int, val largo: Int, val horasSolPorDia: Int) {
 
   //no cumple con la cualidad de robustez
   fun plantar(planta: Planta) {
-    check(cantidadDePlantas() < cantidadMaximaPlantas()) {
+
+    check((cantidadDePlantas() < cantidadMaximaPlantas())) {
       "Ya no hay lugar en esta parcela"
     }
-    check( horasSolPorDia <= (planta.horasDeSolQueTolera() + 2)) {
+    //creo q deberia ser al reves
+    check((horasSolPorDia <= (planta.horasDeSolQueTolera() + 2))) {
       "No se puede plantar esto acá, se va a quemar"
     }
-    /*
-    if (this.cantidadDePlantas() == this.cantidadMaximaPlantas()) {
-      println("Ya no hay lugar en esta parcela")
-    } else if (horasSolPorDia > planta.horasDeSolQueTolera() + 2) {
-      println("No se puede plantar esto acá, se va a quemar")
-    } else {
-      plantas.add(planta)
-    }*/
+
     plantas.add(planta)
   }
 
   fun esSemillera() = plantas.all{ it.daSemillas() }
 
-  fun parcelaTieneComplicaciones() =
-    plantas.any { it.horasDeSolQueTolera() < this.horasSolPorDia }
+  fun parcelaTieneComplicaciones() = plantas.any { it.horasDeSolQueTolera() < this.horasSolPorDia }
 
 }
-
 class Agricultora(val parcelas: MutableList<Parcela>) {
   var ahorrosEnPesos = 20000
 
@@ -53,10 +46,11 @@ class Agricultora(val parcelas: MutableList<Parcela>) {
   fun parcelasSemilleras() = parcelas.filter { it.esSemillera() }
 
   fun plantarEstrategicamente(planta: Planta) {
-      val laElegida = parcelas.maxBy { it.cantidadMaximaPlantas() - it.cantidadDePlantas() }!!
-      //laElegida.plantas.add(planta)
-      //se usa el metodo de la parcela
-      laElegida.plantar(planta)
-    }
+    val laElegida = parcelas.maxByOrNull { it.cantidadMaximaPlantas() - it.cantidadDePlantas() }!!
+    //laElegida.plantas.add(planta)
+    //se usa el metodo de la parcela
+    laElegida.plantar(planta)
   }
+}
+
 
