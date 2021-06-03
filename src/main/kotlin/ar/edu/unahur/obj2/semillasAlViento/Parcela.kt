@@ -18,7 +18,7 @@ class Parcela(val ancho: Int, val largo: Int, val horasSolPorDia: Int) {
     }
     //creo q deberia ser al reves
     check((horasSolPorDia <= (planta.horasDeSolQueTolera() + 2))) {
-      "No se puede plantar esto acá, se va a quemar"
+      "No se puede plantar aquí, se va a quemar"
     }
 
     plantas.add(planta)
