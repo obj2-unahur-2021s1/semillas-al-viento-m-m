@@ -2,8 +2,6 @@ package ar.edu.unahur.obj2.semillasAlViento
 
 class Parcela(val ancho: Int, val largo: Int, val horasSolPorDia: Int) {
   val plantas = mutableListOf<Planta>()
- //var cantidadPlantas = 0 // esta variable no refleja simplicidad y presenta desacoplamiento, porque es independiente
-                          // de la lista anterior.
 
   fun superficie() = ancho * largo
 
@@ -22,14 +20,11 @@ class Parcela(val ancho: Int, val largo: Int, val horasSolPorDia: Int) {
       println("No se puede plantar esto acá, se va a quemar")
     } else {
       plantas.add(planta)
-      //cantidadPlantas += 1 // esto es redundante, porque la forma de resolver el valor de la variable no es simple y
-                           // está desacoplado de la lista de plantas.
     }
   }
-  //se agrega funcion para mejorar
+
   fun esSemillera() = plantas.all{ it.daSemillas() }
 
-  // esta función estaba en Planta.kt
   fun parcelaTieneComplicaciones() =
     plantas.any { it.horasDeSolQueTolera() < this.horasSolPorDia }
 
@@ -50,13 +45,6 @@ class Agricultora(val parcelas: MutableList<Parcela>) {
     }
   }
   fun parcelasSemilleras() = parcelas.filter { it.esSemillera() }
-    // Esta función no presenta un buen nivel de abstracción para la determinación de si una parcela es semillera.
-      // Tampoco tiene facilidad de prueba.
-      //parcelas.filter { parcela ->
-        //parcela.plantas.all { planta ->
-          //planta.daSemillas()
-        //}
-      //}
 
   fun plantarEstrategicamente(planta: Planta) {
       val laElegida = parcelas.maxBy { it.cantidadMaximaPlantas() - it.cantidadDePlantas() }!!
