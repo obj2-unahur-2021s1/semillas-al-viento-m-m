@@ -22,7 +22,6 @@ class ParcelaTest() : DescribeSpec( {
         }
         it("La parcela no tiene complicaciones") {
             miParcela.plantar(sojaGrande)
-            //sojaGrande.parcelaTieneComplicaciones(miParcela).shouldBe(false)
             miParcela.parcelaTieneComplicaciones().shouldBe(false)
         }
         it("La parcela tiene complicaciones") {
@@ -39,7 +38,10 @@ class ParcelaTest() : DescribeSpec( {
         }
 
         it("La parcela recibe más de 2 hs. de las toleradas por la planta") {
-            miParcela.plantar(menta).shouldBe(kotlin.Unit) // la función no produce un error sino un mensaje
+            shouldThrowAny {
+                miParcela.plantar(menta)
+            }
+             //miParcela.plantar(menta).shouldBe(kotlin.Unit) // la función no produce un error sino un mensaje
                                                            // por lo tanto no se puede manejar como una excepción
         }
 
