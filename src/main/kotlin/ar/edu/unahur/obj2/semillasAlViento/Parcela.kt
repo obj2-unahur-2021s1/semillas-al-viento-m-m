@@ -7,9 +7,8 @@ class Parcela(val ancho: Int, val largo: Int, val horasSolPorDia: Int) {
 
   fun cantidadDePlantas() = plantas.size
 
-  // La función no cumple con la cualidad de simplicidad
   fun cantidadMaximaPlantas() =
-    if (ancho > largo) ancho * largo / 5 else ancho * largo / 3 + largo
+    if (ancho > largo) superficie() / 5 else superficie() / 3 + largo
 
   //no cumple con la cualidad de robustez
   fun plantar(planta: Planta) {
