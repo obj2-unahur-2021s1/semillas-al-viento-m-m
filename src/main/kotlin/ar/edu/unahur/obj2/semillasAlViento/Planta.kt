@@ -18,7 +18,7 @@ open class Soja(anioObtencionSemilla: Int, altura: Double) : Planta(anioObtencio
       altura < 1    -> 7
       else          -> 9
     }
-    return horasBase //if (esTransgenica) horasBase * 2 else horasBase
+    return horasBase
   }
   override fun daSemillas(): Boolean  {
     return this.esFuerte() || (this.anioObtencionSemilla > 2007 && this.altura > 1)
