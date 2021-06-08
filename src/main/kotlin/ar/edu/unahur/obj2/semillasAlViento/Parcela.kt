@@ -11,21 +11,16 @@ class Parcela(val ancho: Int, val largo: Int, val horasSolPorDia: Int) {
     if (ancho > largo) superficie() / 5 else superficie() / 3 + largo
 
   fun plantar(planta: Planta) {
-
     check((cantidadDePlantas() < cantidadMaximaPlantas())) {
       "Ya no hay lugar en esta parcela"
     }
-    //creo q deberia ser al reves
     check((horasSolPorDia <= (planta.horasDeSolQueTolera() + 2))) {
       "No se puede plantar aquí, se va a quemar"
     }
     plantas.add(planta)
   }
-
   fun esSemillera() = plantas.all{ it.daSemillas() }
-
   fun parcelaTieneComplicaciones() = plantas.any { it.horasDeSolQueTolera() < this.horasSolPorDia }
-
 }
 class Agricultora(val parcelas: MutableList<Parcela>) {
 
@@ -36,5 +31,3 @@ class Agricultora(val parcelas: MutableList<Parcela>) {
     laElegida.plantar(planta)
   }
 }
-
-

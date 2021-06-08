@@ -41,8 +41,6 @@ class ParcelaTest() : DescribeSpec( {
             shouldThrowAny {
                 miParcela.plantar(menta)
             }
-             //miParcela.plantar(menta).shouldBe(kotlin.Unit) // la función no produce un error sino un mensaje
-                                                           // por lo tanto no se puede manejar como una excepción
         }
 
         it("Se supera la cantidad máxima de plantas y arroja error") {
@@ -51,8 +49,6 @@ class ParcelaTest() : DescribeSpec( {
                 miParcela.plantar(sojaGrande)
             }
             miParcela.cantidadDePlantas().shouldBe(466)
-            //miParcela.plantar(sojaGrande)(kotlin.Unit) // la función no produce un error sino un mensaje
-                                                       // por lo tanto no se puede manejar como una excepción
         }
     }
  }
