@@ -19,7 +19,6 @@ class Parcela(val ancho: Int, val largo: Int, val horasSolPorDia: Int) {
     check((horasSolPorDia <= (planta.horasDeSolQueTolera() + 2))) {
       "No se puede plantar aquí, se va a quemar"
     }
-
     plantas.add(planta)
   }
 
