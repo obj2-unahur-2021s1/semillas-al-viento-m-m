@@ -29,36 +29,24 @@ class AgricultorTest: DescribeSpec( {
     val agricultora = Agricultora(listaParcela)
 
     describe("parcelas semilleras"){
-
         it("la parcela 1 es la unica semillera de la agricultura es la miParcela"){
             sojaGrande.daSemillas().shouldBeTrue()
-
-
             agricultora.parcelasSemilleras().size.shouldBe(1)
             agricultora.parcelasSemilleras().shouldContain(miParcela)
-
         }
-
         it("la parcela 2 no es semillera"){
             agricultora.parcelasSemilleras().shouldNotContain(miParcela2)
         }
-
     }
-
     describe("plantar estrategicamente"){
         val soja = Soja(2021, 1.70)
 
         it("se planta en la parcela 1"){
             soja.daSemillas().shouldBeTrue()
-
             agricultora.plantarEstrategicamente(soja)
-            //la parcela 1 es la primera que se agrego, por ende esta en la posicion 0
             agricultora.parcelas[0].plantas.shouldContain(soja)
         }
-
-
     }
-
 })
 
 
