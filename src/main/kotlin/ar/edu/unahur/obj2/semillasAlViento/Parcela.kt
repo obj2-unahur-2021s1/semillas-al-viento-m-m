@@ -22,6 +22,8 @@ class Parcela(val ancho: Int, val largo: Int, val horasSolPorDia: Int) {
   fun esSemillera() = plantas.all{ it.daSemillas() }
   fun parcelaTieneComplicaciones() = plantas.any { it.horasDeSolQueTolera() < this.horasSolPorDia }
 }
+
+
 class Agricultora(val parcelas: MutableList<Parcela>) {
 
   fun parcelasSemilleras() = parcelas.filter { it.esSemillera() }
